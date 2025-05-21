@@ -1,7 +1,8 @@
 let contador = 1;
+let idSetInterval = null
 
 const iniciarCronometro = () => {
-  const idSetInterval = setInterval(() => {
+    idSetInterval = setInterval(() => {
     const cronometro = document.querySelector(".display-3");
     if (contador < 10) {
       contador = `0${contador}`;
@@ -13,6 +14,13 @@ const iniciarCronometro = () => {
   }, 1000);
 };
 
-const btnIniciar = document.querySelector(".btn-primary");
+const pausarCronometro = () => {
+    clearInterval(idSetInterval)
+    idSetInterval = null
+}
+
+const btnIniciar = document.querySelector(".btn-success");
+const btnPausar = document.querySelector(".btn-primary");
 
 btnIniciar.addEventListener("click", iniciarCronometro);
+btnPausar.addEventListener("click", pausarCronometro);
