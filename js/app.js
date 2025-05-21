@@ -29,6 +29,8 @@ const pausarCronometro = () => {
 const reiniciarCronometro = () => {
   const cronometro = document.querySelector(".display-3");
   cronometro.textContent = "00:00";
+  clearInterval(idSetInterval);
+  idSetInterval=null
   contador = 1;
 };
 
