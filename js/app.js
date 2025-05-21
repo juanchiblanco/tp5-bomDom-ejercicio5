@@ -1,7 +1,5 @@
 let contador = 1;
 let idSetInterval = null;
-const inputNumero = document.getElementById("inputNumero");
-console.log(inputNumero);
 
 const iniciarCronometro = () => {
   if (idSetInterval !== null) return;
