@@ -5,12 +5,18 @@ const iniciarCronometro = () => {
   if (idSetInterval !== null) return;
   idSetInterval = setInterval(() => {
     const cronometro = document.querySelector(".display-3");
-    if (contador < 10) {
-      contador = `0${contador}`;
-    } else {
-      contador = contador;
-    }
-    cronometro.textContent = `${contador}`;
+
+    const minuto = Math.floor(contador/60)
+    const segundo = contador%60
+
+    let minutos
+    if(minuto<10){minutos = `0${minuto}`}else{minutos=minuto}
+
+    let segundos
+    if(segundo<10){segundos = `0${segundo}`}else{segundos=segundo}
+
+    
+    cronometro.textContent = `${minutos}:${segundos}`;
     contador++;
   }, 1000);
 };
