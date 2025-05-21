@@ -1,21 +1,30 @@
 let contador = 1;
 let idSetInterval = null;
+const inputNumero = document.getElementById("inputNumero");
+console.log(inputNumero);
 
 const iniciarCronometro = () => {
   if (idSetInterval !== null) return;
   idSetInterval = setInterval(() => {
     const cronometro = document.querySelector(".display-3");
 
-    const minuto = Math.floor(contador/60)
-    const segundo = contador%60
+    const minuto = Math.floor(contador / 60);
+    const segundo = contador % 60;
 
-    let minutos
-    if(minuto<10){minutos = `0${minuto}`}else{minutos=minuto}
+    let minutos;
+    if (minuto < 10) {
+      minutos = `0${minuto}`;
+    } else {
+      minutos = minuto;
+    }
 
-    let segundos
-    if(segundo<10){segundos = `0${segundo}`}else{segundos=segundo}
+    let segundos;
+    if (segundo < 10) {
+      segundos = `0${segundo}`;
+    } else {
+      segundos = segundo;
+    }
 
-    
     cronometro.textContent = `${minutos}:${segundos}`;
     contador++;
   }, 1000);
@@ -30,7 +39,7 @@ const reiniciarCronometro = () => {
   const cronometro = document.querySelector(".display-3");
   cronometro.textContent = "00:00";
   clearInterval(idSetInterval);
-  idSetInterval=null
+  idSetInterval = null;
   contador = 1;
 };
 
